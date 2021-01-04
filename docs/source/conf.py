@@ -42,7 +42,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'TAK Project Index'
+project = u'PyCalco'
 copyright = u'2020, Toure A. Karim & Contributors -'
 author = u'Toure A. Karim'
 
@@ -167,7 +167,7 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'TAKPIndexdoc'
+htmlhelp_basename = 'pycalcodoc'
 
 
 # Options for LaTeX output
@@ -182,7 +182,7 @@ htmlhelp_basename = 'TAKPIndexdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, document class [howto/manual]).
 latex_documents = [
-  ('index', 'TAKPIndex.tex', ur'TAK Project Index Documentation',
+  ('index', 'pycalco.tex', ur'PyCalco Reference Documentation',
    ur'Toure A. Karim', 'manual'),
 ]
 
@@ -208,7 +208,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'takpindex', u'TAK Project Index Documentation',
+    ('index', 'pycalco', u'PyCalco Reference Documentation',
      [author], 1)
 ]
 
@@ -222,8 +222,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'TAKPIndex', u'TAK Project Index Doc Center',
-   author, 'TAKPIndex', 'Documentation Center for TAK Projects',
+  ('index', 'PyCalco', u'PyCalco Reference Documentation',
+   author, 'PyCalco', 'PyCalco Reference Documentation',
    'Manuals'),
 ]
 
