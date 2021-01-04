@@ -65,23 +65,26 @@ class PyCalcoShell(cmd.Cmd):
         self.do_eval(line)
         
     def do_copyright(self, line):
-        pass
+        print("Copyright (c) 2021 Toure A. Karim and Contributors.")
+        print("All Rights Reserved.")
     
     def help_copyright(self):
-        print('Print project copyright info.')    
+        print('A command for printing project copyright notice.')    
 
     def do_credits(self, line):
-        pass
+        print("Thanks to  all the contributors for supporting PyCalco development.")
+        print("See 'gh.trabdlkarim.com/pycalco' for more information.")
     
     def help_credits(self):
-        print('Credits for project contributors ')
+        print('A command for printing a list of contributors.')
 
     def do_license(self, line):
         print('This is an open source project, and its code is being actively developed in the open on GitHub.') 
-        print("PyCalco is under the BSD 3-Clause Revised license. For more info about the license see  'https.gh.trabdlkarim/pycalco/license'")
+        print("PyCalco is under the BSD 3-Clause Revised license.")
+        print("For more info about the license see 'https.gh.trabdlkarim/pycalco/license'.")
     
     def help_license(self):
-        print('Print info about project license.')
+        print('A command for printing the project license.')
 
     def do_shell(self,line):
         self.do_assn(line)     
