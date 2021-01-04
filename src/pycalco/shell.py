@@ -77,7 +77,8 @@ class PyCalcoShell(cmd.Cmd):
         print('Credits for project contributors ')
 
     def do_license(self, line):
-        pass
+        print('This is an open source project, and its code is being actively developed in the open on GitHub.') 
+        print("PyCalco is under the BSD 3-Clause Revised license. For more info about the license see  'https.gh.trabdlkarim/pycalco/license'")
     
     def help_license(self):
         print('Print info about project license.')
