@@ -154,17 +154,17 @@ class PyCalcoShell(cmd.Cmd):
         print(__locals__)
         
     def do_bye(self, args):
-        """A synonym or alias for EXIT command."""
+        """A synonym or alias for exit command."""
         return True
     
     
     def do_exit(self, arg):
-        """Terminate the session and return to the command interpreter."""
+        """Terminate the session and exit the command interpreter."""
         return self.do_bye(arg)
     
     
     def do_quit(self,arg):
-        """A synonym or alias for EXIT command."""
+        """A synonym or alias for exit command."""
         return self.do_bye(arg)
    
     
@@ -202,6 +202,30 @@ class PyCalcoShell(cmd.Cmd):
 
     def help_cosh(self):
         help('math.cosh')
+
+    def help_deg(self):
+        help('math.degrees')
+ 
+    def help_rad(self):
+        help('math.radians')
+   
+    def help_e(self):
+        help('math.e')
+     
+    def help_erf(self):
+        help('math.erf')
+
+    def help_erfc(self):
+        help('math.erfc')
+
+    def help_exp(self):
+        help('math.exp')
+ 
+    def help_expm1(self):
+        help('math.expm1')
+
+    def help_fabs(self):
+        help('math.fabs')
 
     def postloop(self):
         print("Bye, session terminated.")
