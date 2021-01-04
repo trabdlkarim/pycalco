@@ -1,2 +1,1 @@
-# PyCalco
-A powerful arithmetic expressions evaluator.
+# A Powerful Arithmetic Expressions Evaluator
