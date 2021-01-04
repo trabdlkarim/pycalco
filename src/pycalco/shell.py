@@ -42,7 +42,8 @@ class PyCalcoShell(cmd.Cmd):
     intro += 'Python ' + sys.version + '\n'
     intro += "Type 'copyright', 'credits' or 'license' for more information.\n"
     intro += "PyCalco " + __version__ + " -- A Powerful Arithmetic Expressions Evaluator.\n"
-    intro += "Type 'help' or '?' for help.\n\n"
+    intro += "Type 'help' or '?' for help.\n"
+    intro += "Type 'bye', 'exit' or 'quit' for ending this session.\n\n"
     prompt = GREEN + "PyCalco [%i]: " + END
     
     def preloop(self):
