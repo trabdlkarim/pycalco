@@ -1,2 +1,2 @@
-# pycalco
-Simple Python Calculator
+# PyCalco
+A powerful arithmetic expressions evaluator.
