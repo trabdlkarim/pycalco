@@ -36,7 +36,8 @@ __globals__ = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 
                'tan': math.tan, 'tanh': math.tanh, 'tau': math.tau, 'trunc': math.trunc,      
                'null': None, '_': None}
          
-  
+__locals__ = {}
+
 class PyCalcoShell(cmd.Cmd):
     intro = "Welcome to PyCalco shell!\n"
     intro += 'Python ' + sys.version + '\n'
@@ -44,7 +45,10 @@ class PyCalcoShell(cmd.Cmd):
     intro += "PyCalco " + __version__ + " -- A Powerful Arithmetic Expressions Evaluator.\n"
     intro += "Type 'help' or '?' for help.\n"
     intro += "Type 'bye', 'exit' or 'quit' for ending this session.\n\n"
+    
     prompt = GREEN + "PyCalco [%i]: " + END
+    doc_header = "Documented avaible commands (type help <topic>):"
+    misc_header = "Globals and miscellaneous help topics:"    
     
     def preloop(self):
         self.cmd_count = 1
@@ -66,43 +70,42 @@ class PyCalcoShell(cmd.Cmd):
         self.do_eval(line)
         
     def do_copyright(self, line):
+        """A command for printing project copyright notice."""
         print("Copyright (c) 2021 Toure A. Karim and Contributors.")
         print("All Rights Reserved.")
     
-    def help_copyright(self):
-        print('A command for printing project copyright notice.')    
-
+    
     def do_credits(self, line):
+        """A command for printing a list of contributors."""
         print("Thanks to  all the contributors for supporting PyCalco development.")
         print("See 'gh.trabdlkarim.com/pycalco' for more information.")
-    
-    def help_credits(self):
-        print('A command for printing a list of contributors.')
-
+   
     def do_license(self, line):
+        """A command for printing the project license."""
         print('This is an open source project, and its code is being actively developed in the open on GitHub.') 
         print("PyCalco is under the BSD 3-Clause Revised license.")
         print("For more info about the license see 'https.gh.trabdlkarim/pycalco/license'.")
     
-    def help_license(self):
-        print('A command for printing the project license.')
-
+  
     def do_shell(self,line):
+        """description: a synomym or alias for ASSN command.
+usage: !NAME = EXPR  
+        """
         self.do_assn(line)     
-    
-    def help_shell(self):
-        print("A synomym or alias for ASSN command.")
-        print("usage: !VAR = EXPR")
+ 
     
     def do_eval(self, expression):
         try:
+            if not expression:
+                raise SyntaxError("invalid syntax for eval command (expression is missing).")
+            
             code_obj = compile(expression,'<string>','eval')
             
             for name in code_obj.co_names:
-                if name not in __globals__:
+                if name not in __globals__ and name not in __locals__:
                     raise NameError('name ' +"'" + name +"'" + ' is not defined' )
 
-            print(eval(expression,__globals__))
+            print(eval(expression,__globals__,__locals__))
 
         except Exception as err:
             print(RED + "error: " + END + str(err) )
@@ -125,46 +128,46 @@ class PyCalcoShell(cmd.Cmd):
                 code_obj = compile(expr,'<string>','eval')
 
                 for name in code_obj.co_names:
-                    if name not in __globals__:
+                    if name not in __globals__ and name not in __locals__:
                         raise NameError('name '+ "'" + name + "'"  + ' is not defined')
                 
                 expr = eval(expr,__globals__)
                 exec(var + ' = ' + str(expr),{}) 
-                __globals__[var]= expr
+                __locals__[var]= expr
                 print("%s = %s" % (var,expr))   
             
             except Exception as err:
                 print(RED+ "error: " + END + str(err))
         else:
-            print(RED + "error: " + END + "invalid syntax for assignment (missing '=')")
+            print(RED + "error: " + END + "invalid syntax for assn command (type '?assn' for help).")
         
     def help_assn(self):
         print("Assign a value to a variable.")
         print("usage: assn VAR = EXPR")
+   
     
+    def do_globals(self, args):
+        """A command for listing all available global names."""
+        names = [name for name in __globals__.keys() if not name.startswith('__')]
+        print(sorted(names))
     
-    def do_bye(self, arg):
+    def do_locals(self, args):
+        """A command for listing all available locals names."""
+        print(__locals__)
+        
+    def do_bye(self, args):
+        """A synonym or alias for EXIT command."""
         return True
-    
-    def help_bye(self):
-        print("Terminate the session and return to the command interpreter.")
-        print("usage: bye")
     
     
     def do_exit(self, arg):
+        """Terminate the session and return to the command interpreter."""
         return self.do_bye(arg)
     
-    def help_exit(self):
-        print("A synonym or alias for BYE command.")
-        print("usage: exit")
-
     
     def do_quit(self,arg):
+        """A synonym or alias for EXIT command."""
         return self.do_bye(arg)
-    
-    def help_quit(self):
-        print("A synonym or alias for BYE command.")
-        print("usage: quit")
    
     
     # Help methods for gobals
