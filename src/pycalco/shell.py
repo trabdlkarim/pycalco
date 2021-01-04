@@ -57,11 +57,6 @@ class PyCalcoShell(cmd.Cmd):
     def precmd(self,line):
         self.cmd_count += 1
         PyCalcoShell.prompt = GREEN + "PyCalco [%i]: " % self.cmd_count + END 
-        
-        if line:
-            return line.replace(line.split()[0], line.split()[0].lower())
-        
-        else: return line
     
     def emptyline(self):
         pass
