@@ -12,7 +12,7 @@ GREEN = '\033[92m'
 RED = '\033[31m'
 END = '\033[0m'
 
-__version__ = "0.9.0"
+__version__ = "0.9.1"
 
 __globals__ = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any': blt.any, 
                'bin': blt.bin, 'mod': blt.divmod, 'hex': 'hex', 'max': blt.max, 'min': blt.min,
@@ -88,9 +88,7 @@ class PyCalcoShell(cmd.Cmd):
     
   
     def do_shell(self,line):
-        """description: a synomym or alias for ASSN command.
-usage: !NAME = EXPR  
-        """
+        """A bang shortcut for assn command (i.e,!NAME = EXPR is same as assn NAME = EXPR)."""
         self.do_assn(line)     
  
     
