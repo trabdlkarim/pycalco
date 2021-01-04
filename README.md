@@ -5,4 +5,5 @@ PyCalco is a powerful command line tool written in Python for evaluating arithme
 # Documentation
 
 The official reference documentation of the project is located at <https://docs.trabdlkarim.com/projects/pycalco/en/latest/>.
+
 Visit that link to learn more about the project.
