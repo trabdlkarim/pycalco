@@ -1,2 +1,3 @@
 # PyCalco
-A powerful arithmetic expressions evaluator.
+
+A powerful command line tool for arithmetic expressions evaluation in Python.
