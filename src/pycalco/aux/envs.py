@@ -17,7 +17,7 @@ GLOBS = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any':
                'map': blt.map, 'range': blt.range, 'zip': blt.zip,  
                'null': None, '_': None}
 if not _flag:
-    exec("from sympy import *",{"sympy": sympy},GLOBS)
+    exec("from math import *", {"math": math}, GLOBS)
     _flag = True
 
 SYM_ENV = { key: val for key, val in sympy.__dict__.items() if not key.startswith('__')}
