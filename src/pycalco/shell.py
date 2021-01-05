@@ -1,11 +1,8 @@
 import sys
 import builtins as blt
-
 import math
 import cmd
-import re
 
-import click
 
 
 GREEN = '\033[92m'
@@ -57,34 +54,50 @@ class PyCalcoShell(cmd.Cmd):
     def precmd(self,line):
         self.cmd_count += 1
         PyCalcoShell.prompt = GREEN + "PyCalco [%i]: " % self.cmd_count + END 
-    
+        return line
+
     def emptyline(self):
         pass
     
     def default(self,line):
         self.do_eval(line)
         
-    def do_copyright(self, line):
+    def do_copyright(self, args):
         """A command for printing project copyright notice."""
-        print("Copyright (c) 2021 Toure A. Karim and Contributors.")
-        print("All Rights Reserved.")
+        if not args:
+            print("Copyright (c) 2021 Toure A. Karim and Contributors.")
+            print("All Rights Reserved.")
+        else:
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
     
-    
-    def do_credits(self, line):
+    def do_credits(self, args):
         """A command for printing a list of contributors."""
-        print("Thanks to  all the contributors for supporting PyCalco development.")
-        print("See 'gh.trabdlkarim.com/pycalco' for more information.")
-   
-    def do_license(self, line):
-        """A command for printing the project license."""
-        print('This is an open source project, and its code is being actively developed in the open on GitHub.') 
-        print("PyCalco is under the BSD 3-Clause Revised license.")
-        print("For more info about the license see 'https.gh.trabdlkarim/pycalco/license'.")
+        if not args:
+            print("Thanks to  all the contributors for supporting PyCalco development.")
+            print("See 'gh.trabdlkarim.com/pycalco' for more information.")
+        else:   
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
     
-  
-    def do_shell(self,line):
+    def do_license(self, args):
+        """A command for printing the project license."""
+        if not args:
+            print('This is an open source project, and its code is being actively developed in the open on GitHub.') 
+            print("PyCalco is under the BSD 3-Clause Revised license.")
+            print("For more info about the license see 'https.gh.trabdlkarim/pycalco/license'.")
+        else:
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
+    
+    def do_init(self, args):
+        """Initialize shell local environment."""
+        if not args:
+            __locals__ = {}
+            print("Local environment successfully initialized.")
+        else:
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
+    
+    def do_shell(self, args):
         """A bang shortcut for assn command (i.e,!NAME = EXPR is same as assn NAME = EXPR)."""
-        self.do_assn(line)     
+        self.do_assn(args)     
  
     
     def do_eval(self, expression):
@@ -98,8 +111,10 @@ class PyCalcoShell(cmd.Cmd):
                 if name not in __globals__ and name not in __locals__:
                     raise NameError('name ' +"'" + name +"'" + ' is not defined' )
 
-            print(eval(expression,__globals__,__locals__))
-
+            result = eval(expression,__globals__,__locals__)
+            print(result)
+            __globals__['ans'] = __globals__['_'] = result
+        
         except Exception as err:
             print(RED + "error: " + END + str(err) )
         
@@ -126,13 +141,18 @@ class PyCalcoShell(cmd.Cmd):
                 
                 expr = eval(expr,__globals__)
                 exec(var + ' = ' + str(expr),{}) 
-                __locals__[var]= expr
-                print("%s = %s" % (var,expr))   
-            
+                
+                if var not in __globals__:
+                    __locals__[var]= expr
+                    print("%s = %s" % (var,expr))   
+                       
+                else:
+                    raise NameError("can't reassign global " + "'" + var + "' (" + str(type(__globals__[var])) + ")")
+
             except Exception as err:
                 print(RED+ "error: " + END + str(err))
         else:
-            print(RED + "error: " + END + "invalid syntax for assn command (type '?assn' for help).")
+            print(RED + "error: " + END + "invalid syntax for assn command (type '?assn' for help)")
         
     def help_assn(self):
         print("Assign a value to a variable.")
@@ -141,26 +161,38 @@ class PyCalcoShell(cmd.Cmd):
     
     def do_globals(self, args):
         """A command for listing all available global names."""
-        names = [name for name in __globals__.keys() if not name.startswith('__')]
-        print(sorted(names))
-    
+        if not args:
+            names = [name for name in __globals__.keys() if not name.startswith('__')]
+            print(sorted(names))
+      
+        else:
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
+
     def do_locals(self, args):
         """A command for listing all available locals names."""
-        print(__locals__)
-        
+        if not args:
+            print(__locals__)
+            
+        else:
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
+
     def do_bye(self, args):
         """A synonym or alias for exit command."""
-        return True
-    
-    
-    def do_exit(self, arg):
+        if not args:
+            return True
+            
+        else:
+            print(RED + "error: " + END + "too many args (takes no arg but one was given)")
+            return False
+
+    def do_exit(self, args):
         """Terminate the session and exit the command interpreter."""
-        return self.do_bye(arg)
+        return self.do_bye(args)
     
     
-    def do_quit(self,arg):
+    def do_quit(self,args):
         """A synonym or alias for exit command."""
-        return self.do_bye(arg)
+        return self.do_bye(args)
    
     
     # Help methods for gobals
@@ -177,7 +209,7 @@ class PyCalcoShell(cmd.Cmd):
     def help_asinh(self):
         help('math.asinh')
     
-    def help_atan(eself):
+    def help_atan(self):
         help('math.atan')
     
     def help_atan2(self):
