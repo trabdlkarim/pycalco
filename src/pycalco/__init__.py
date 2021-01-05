@@ -1,6 +1,7 @@
 import sys
-from pycalco import calculator as calco
+from pycalco.calculator import Calco
 
 def main():
     """Entry point for the application script"""
+    calco = Calco()
     calco.run()
