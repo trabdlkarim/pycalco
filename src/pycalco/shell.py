@@ -140,12 +140,12 @@ class PyCalcoShell(cmd.Cmd):
                         raise NameError('name '+ "'" + name + "'"  + ' is not defined')
                 
                 expr = eval(expr,__globals__)
-                exec(var + ' = ' + str(expr),{}) 
+                
+                exec(var + ' = ' + str(expr),{'__builtins__':{}},__locals__) 
                 
                 if var not in __globals__:
-                    __locals__[var]= expr
                     print("%s = %s" % (var,expr))   
-                       
+                
                 else:
                     raise NameError("can't reassign global " + "'" + var + "' (" + str(type(__globals__[var])) + ")")
 
