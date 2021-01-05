@@ -11,3 +11,12 @@ import click
 class Calco(object):
     def __init__(self):
         pass
+    
+    def eval(self, expression):
+        pass 
+    
+    def sym(self, args):
+        pass
+    
+    def run(self):
+        pass 
