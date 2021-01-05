@@ -33,7 +33,7 @@ def expr_checker(expression, globs, locs):
     code_obj = compile(expression,'<string>','eval')
             
     for name in code_obj.co_names:
-        if name not in __globals__ and name not in __locals__:
+        if name not in globs and name not in locs:
             raise NameError('name ' +"'" + name +"'" + ' is not defined' )
 
     return eval(expression, globs, locs)
