@@ -89,7 +89,7 @@ class PyCalcoShell(cmd.Cmd):
         
     def do_assn(self, stmt):
         try:  
-            result = ass_checker(stmt, __globals__, __locals__)
+            result = assn_checker(stmt, __globals__, __locals__)
             print(result)  
         except Exception as err:
             print(RED+ "error: " + END + str(err))
