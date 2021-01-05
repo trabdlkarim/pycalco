@@ -27,19 +27,14 @@ def assn_checker(stmt, globs, locs):
 
  
 def expr_checker(expression, globs, locs):
-        try:
-            if not expression:
-                raise SyntaxError("invalid syntax for eval command (expression is missing).")
+    if not expression:
+        raise SyntaxError("invalid syntax for eval command (expression is missing).")
             
-            code_obj = compile(expression,'<string>','eval')
+    code_obj = compile(expression,'<string>','eval')
             
-            for name in code_obj.co_names:
-                if name not in __globals__ and name not in __locals__:
-                    raise NameError('name ' +"'" + name +"'" + ' is not defined' )
+    for name in code_obj.co_names:
+        if name not in __globals__ and name not in __locals__:
+            raise NameError('name ' +"'" + name +"'" + ' is not defined' )
 
-            result = eval(expression,__globals__,__locals__)
-            print(result)
-            __globals__['ans'] = __globals__['_'] = result
-        
-        except Exception as err:
-            print(RED + "error: " + END + str(err) )
+    return eval(expression, globs, locs)
+            
