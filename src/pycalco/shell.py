@@ -1,42 +1,12 @@
 import sys
-import builtins as blt
-import math
 import cmd
 
-import sympy
 from pycalco.aux.envs import *
+from pycalco.aux.checkers import *
 
-#GREEN = '\033[92m'
-#RED = '\033[31m'
-#END = '\033[0m'
-
-#__version__ = "0.9.1"
-
-__globals__ = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any': blt.any, 
-               'bin': blt.bin, 'mod': blt.divmod, 'hex': 'hex', 'max': blt.max, 'min': blt.min,
-               'len': blt.len, 'oct': blt.oct, 'ord': blt.ord, 'powmod': blt.pow, 'round': blt.round, 
-               'sorted': blt.sorted, 'sum': blt.sum, 'false': False, 'true': True, 'bool': blt.bool, 
-               'complex': blt.complex, 'filter': blt.filter, 'float': blt.float, 'int': blt.int, 
-               'map': blt.map, 'range': blt.range, 'zip': blt.zip, 
-         
-               'acos': math.acos, 'acosh': math.acosh, 'asin': math.asin, 'asinh': math.asinh,
-               'atan': math.atan, 'atan2': math.atan2, 'atanh': math.atanh, 'ceil': math.ceil,
-               'copysign': math.copysign, 'cos': math.cos, 'cosh': math.cosh, 
-               'deg': math.degrees, 'e': math.e, 'erf': math.erf, 'erfc': math.erfc,
-               'exp': math.exp, 'expm1': math.expm1, 'fabs': math.fabs, 'fac': math.factorial,
-               'floor': math.floor, 'fmod': math.fmod, 'frexp': math.frexp, 'fsum': math.fsum,
-               'gamma': math.gamma, 'gcd': math.gcd, 'hypot': math.hypot, 'inf': math.inf,
-               'isclose': math.isclose, 'isfinite': math.isfinite, 'isinf': math.isinf,
-               'isnan': math.isnan, 'ldexp': math.ldexp, 'lgamma': math.lgamma, 'log': math.log,
-               'log10': math.log10, 'log1p': math.log1p, 'log2': math.log2, 'modf': math.modf,
-               'nan': math.nan, 'pi': math.pi, 'pow': math.pow, 'rad': math.radians, 
-               'rem': math.remainder, 'sin': math.sin, 'sinh': math.sinh, 'sqrt': math.sqrt,
-               'tan': math.tan, 'tanh': math.tanh, 'tau': math.tau, 'trunc': math.trunc,      
-               'null': None, '_': None}
-         
+__globals__ = GLOBS   
 __locals__ = {}
-
-__sympy_env__ = {}
+__sympy_env__ = SYM_ENV
 
 class PyCalcoShell(cmd.Cmd):
     intro = "Welcome to PyCalco shell!\n"
@@ -106,19 +76,9 @@ class PyCalcoShell(cmd.Cmd):
     
     def do_eval(self, expression):
         try:
-            if not expression:
-                raise SyntaxError("invalid syntax for eval command (expression is missing).")
-            
-            code_obj = compile(expression,'<string>','eval')
-            
-            for name in code_obj.co_names:
-                if name not in __globals__ and name not in __locals__:
-                    raise NameError('name ' +"'" + name +"'" + ' is not defined' )
-
-            result = eval(expression,__globals__,__locals__)
+            result = expr_checker(expression, __globals__, __locals__)
             print(result)
             __globals__['ans'] = __globals__['_'] = result
-        
         except Exception as err:
             print(RED + "error: " + END + str(err) )
         
@@ -127,59 +87,27 @@ class PyCalcoShell(cmd.Cmd):
         print("usage: eval EXPR")
         
         
-    def do_assn(self, statement):
-        equal = None
-        for i in range(len(statement)):
-            if statement[i] == '=':
-                equal = i
-                break
-        if equal:
-            var = statement[:equal].strip()
-            expr = statement[equal+1:].strip()
-            try:
-                code_obj = compile(expr,'<string>','eval')
-
-                for name in code_obj.co_names:
-                    if name not in __globals__ and name not in __locals__:
-                        raise NameError('name '+ "'" + name + "'"  + ' is not defined')
-                
-                expr = eval(expr,__globals__,__locals__)
-                
-                exec(var + ' = ' + str(expr),{'__builtins__':{}},__locals__) 
-                
-                if var not in __globals__:
-                    print("%s = %s" % (var,expr))   
-                
-                else:
-                    raise NameError("can't reassign global " + "'" + var + "' (" + str(type(__globals__[var])) + ")")
-
-            except Exception as err:
-                print(RED+ "error: " + END + str(err))
-        else:
-            print(RED + "error: " + END + "invalid syntax for assn command (type '?assn' for help)")
+    def do_assn(self, stmt):
+        try:  
+            result = ass_checker(stmt, __globals__, __locals__)
+            print(result)  
+        except Exception as err:
+            print(RED+ "error: " + END + str(err))
         
     def help_assn(self):
         print("Assign a value to a variable.")
         print("usage: assn VAR = EXPR")
    
     def do_sym(self, args):
-        global __sympy_env__
-        if not __sympy_env__:
-            __sympy_env__ = {'__builtins': {}}
-            exec("from sympy import *", {'__builtins': {}, '__import__': __import__, 'sympy': sympy}, __sympy_env__)
         try:
-            if args:
-
-                print(eval(args, __sympy_env__, __locals__))
-            
-            else:
-                raise SyntaxError("invalid syntax for sym command (arg is missing).")
-                
+            result =  expr_checker(args, __sympy_env__, __locals__)
+            print(result)
+            __globals__['ans'] = __globals__['_'] = result
         except Exception as err:
             print(str(err))
     
     def help_sym(self):
-        print('Command for symbolyc computation')
+        print('Command for symbolic computation')
 
     def do_globals(self, args):
         """A command for listing all available global names."""
