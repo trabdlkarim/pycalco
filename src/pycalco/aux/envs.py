@@ -6,9 +6,9 @@ import sympy
 GREEN = '\033[92m'
 RED = '\033[31m'
 END = '\033[0m'
-
-VER = "0.9.1"
+VER = '0.9.1'
 _flag = False
+
 GLOBS = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any': blt.any, 
                'bin': blt.bin, 'mod': blt.divmod, 'hex': 'hex', 'max': blt.max, 'min': blt.min,
                'len': blt.len, 'oct': blt.oct, 'ord': blt.ord, 'powmod': blt.pow, 'round': blt.round, 
@@ -18,5 +18,6 @@ GLOBS = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any':
                'null': None, '_': None}
 if not _flag:
     exec("from sympy import *",{"sympy": sympy},GLOBS)
+    _flag = True
 
 SYM_ENV = { key: val for key, val in sympy.__dict__.items() if not key.startswith('__')}
