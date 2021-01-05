@@ -90,6 +90,7 @@ class PyCalcoShell(cmd.Cmd):
     def do_init(self, args):
         """Initialize shell local environment."""
         if not args:
+            global __locals__
             __locals__ = {}
             print("Local environment successfully initialized.")
         else:
@@ -139,7 +140,7 @@ class PyCalcoShell(cmd.Cmd):
                     if name not in __globals__ and name not in __locals__:
                         raise NameError('name '+ "'" + name + "'"  + ' is not defined')
                 
-                expr = eval(expr,__globals__)
+                expr = eval(expr,__globals__,__locals__)
                 
                 exec(var + ' = ' + str(expr),{'__builtins__':{}},__locals__) 
                 
