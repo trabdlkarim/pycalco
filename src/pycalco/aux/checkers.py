@@ -1,32 +1,27 @@
 
-def do_assn(self, statement):
-        equal = None
-        for i in range(len(statement)):
-            if statement[i] == '=':
-                equal = i
+def assn_checker(stmt, globs, locs):
+    eq_sign = None
+    for i in range(len(stmt)):
+            if stmt[i] == '=':
+                eq_sign = i
                 break
-        if equal:
-            var = statement[:equal].strip()
-            expr = statement[equal+1:].strip()
-            try:
-                code_obj = compile(expr,'<string>','eval')
+    if eq_sign:
+       var = stmt[:eq_sign].strip()
+       expr = stmt[eq_sign+1:].strip()
+       
+       code_obj = compile(expr,'<string>','eval')
 
-                for name in code_obj.co_names:
-                    if name not in __globals__ and name not in __locals__:
-                        raise NameError('name '+ "'" + name + "'"  + ' is not defined')
+       for name in code_obj.co_names:
+           if name not in globs and name not in locs:
+               raise NameError('name '+ "'" + name + "'"  + ' is not defined')
                 
-                expr = eval(expr,__globals__,__locals__)
+       expr = eval(expr, globs, locs)
+       exec(var + ' = ' + str(expr),{'__builtins__':{}}, locs) 
                 
-                exec(var + ' = ' + str(expr),{'__builtins__':{}},__locals__) 
-                
-                if var not in __globals__:
-                    print("%s = %s" % (var,expr))   
-                
-                else:
-                    raise NameError("can't reassign global " + "'" + var + "' (" + str(type(__globals__[var])) + ")")
-
-            except Exception as err:
-                print(RED+ "error: " + END + str(err))
-        else:
-            print(RED + "error: " + END + "invalid syntax for assn command (type '?assn' for help)")
+       if var not in globs:
+           return "%s = %s" % (var, expr)
+       else:
+           raise NameError("can't reassign global " + "'" + var + "' (" + str(type(globs[var])) + ")")
+    else:
+        raise SyntaxError("invalid syntax for assignment (type '?assn' for help)")
         
