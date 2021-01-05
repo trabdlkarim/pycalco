@@ -163,12 +163,14 @@ class PyCalcoShell(cmd.Cmd):
         print("usage: assn VAR = EXPR")
    
     def do_sym(self, args):
+        global __sympy_env__
         if not __sympy_env__:
-            exec("from sympy import *", {'sympy':sympy}, __sympy_env__)
+            __sympy_env__ = {'__builtins': {}}
+            exec("from sympy import *", {'__builtins': {}, '__import__': __import__, 'sympy': sympy}, __sympy_env__)
         try:
             if args:
 
-                print(eval(args,{'__builtins':{}}, __sympy_env__))
+                print(eval(args, __sympy_env__, __locals__))
             
             else:
                 raise SyntaxError("invalid syntax for sym command (arg is missing).")
