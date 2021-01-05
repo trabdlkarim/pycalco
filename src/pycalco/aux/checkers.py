@@ -1,4 +1,7 @@
 def assn_checker(stmt, globs, locs):
+    if not stmt:
+        raise SyntaxError("invalid syntax for assignment (statement is missing).")
+            
     eq_sign = None
     for i in range(len(stmt)):
         if stmt[i] == '=':
