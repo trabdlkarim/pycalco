@@ -3,6 +3,7 @@ import builtins as blt
 import math
 import cmd
 
+import sympy
 
 
 GREEN = '\033[92m'
@@ -34,6 +35,8 @@ __globals__ = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 
                'null': None, '_': None}
          
 __locals__ = {}
+
+__sympy_env__ = {}
 
 class PyCalcoShell(cmd.Cmd):
     intro = "Welcome to PyCalco shell!\n"
@@ -159,7 +162,23 @@ class PyCalcoShell(cmd.Cmd):
         print("Assign a value to a variable.")
         print("usage: assn VAR = EXPR")
    
+    def do_sym(self, args):
+        if not __sympy_env__:
+            exec("from sympy import *", {'sympy':sympy}, __sympy_env__)
+        try:
+            if args:
+
+                print(eval(args,{'__builtins':{}}, __sympy_env__))
+            
+            else:
+                raise SyntaxError("invalid syntax for sym command (arg is missing).")
+                
+        except Exception as err:
+            print(str(err))
     
+    def help_sym(self):
+        print('Command for symbolyc computation')
+
     def do_globals(self, args):
         """A command for listing all available global names."""
         if not args:
