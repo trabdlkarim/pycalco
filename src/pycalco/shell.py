@@ -4,13 +4,13 @@ import math
 import cmd
 
 import sympy
+from pycalco.aux.envs import *
 
+#GREEN = '\033[92m'
+#RED = '\033[31m'
+#END = '\033[0m'
 
-GREEN = '\033[92m'
-RED = '\033[31m'
-END = '\033[0m'
-
-__version__ = "0.9.1"
+#__version__ = "0.9.1"
 
 __globals__ = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any': blt.any, 
                'bin': blt.bin, 'mod': blt.divmod, 'hex': 'hex', 'max': blt.max, 'min': blt.min,
@@ -42,7 +42,7 @@ class PyCalcoShell(cmd.Cmd):
     intro = "Welcome to PyCalco shell!\n"
     intro += 'Python ' + sys.version + '\n'
     intro += "Type 'copyright', 'credits' or 'license' for more information.\n"
-    intro += "PyCalco " + __version__ + " -- A Powerful Arithmetic Expressions Evaluator.\n"
+    intro += "PyCalco " + VER + " -- A Powerful Arithmetic Expressions Evaluator.\n"
     intro += "Type 'help' or '?' for help.\n"
     intro += "Type 'bye', 'exit' or 'quit' for ending this session.\n\n"
     
