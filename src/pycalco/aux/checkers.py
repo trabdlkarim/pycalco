@@ -18,7 +18,7 @@ def assn_checker(stmt, globs, locs):
                 raise NameError('name '+ "'" + name + "'"  + ' is not defined')
                 
         expr = eval(expr, globs, locs)
-        exec(var + ' = ' + str(expr),{'__builtins__':{}}, locs) 
+        exec(var + ' = ' + str(expr), globs, locs) 
                 
         if var not in globs:
             return "%s = %s" % (var, expr)

@@ -1,6 +1,7 @@
 import sys
 import cmd
 
+from pycalco import *
 from pycalco.aux.envs import *
 from pycalco.aux.checkers import *
 
@@ -107,6 +108,13 @@ class PyCalcoShell(cmd.Cmd):
         except Exception as err:
             print(RED + "error: " + END + str(err))
     
+    def do_asym(self,args):
+        try:
+            result =  assn_checker(args, __sympy_env__, __locals__)
+            print(result)
+        except Exception as err:
+            print(RED + "error: " + END + str(err))
+
     def help_sym(self):
         print('Command for symbolic computation')
 
