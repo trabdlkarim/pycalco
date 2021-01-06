@@ -20,4 +20,4 @@ for key, val in math.__dict__.items():
         GLOBS[key] = val
          
 SYM_ENV = { key: val for key, val in sympy.__dict__.items() if not key.startswith('__')}
-SYM_ENV['__builtins__']={}
+SYM_ENV['__builtins__'] = {}
