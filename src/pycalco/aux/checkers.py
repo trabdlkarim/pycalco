@@ -17,11 +17,11 @@ def assn_checker(stmt, globs, locs):
             if name not in globs and name not in locs:
                 raise NameError('name '+ "'" + name + "'"  + ' is not defined')
                 
-        expr = eval(expr, globs, locs)
-        exec(var + ' = ' + str(expr), globs, locs) 
+        val = eval(expr, globs, locs)
+        exec(stmt, globs, locs) 
                 
         if var not in globs:
-            return "%s = %s" % (var, expr)
+            return "%s = %s" % (var, val)
         else:
             raise NameError("can't reassign global " + "'" + var + "' (" + str(type(globs[var])) + ")")
     else:
