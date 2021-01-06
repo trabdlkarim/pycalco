@@ -1,13 +1,11 @@
-GREEN = '\033[92m'
-RED = '\033[31m'
-END = '\033[0m'
-VER = '0.9.1'
+
+version = '0.9.1'
 
 from . import aux
-from . import calculator as calc
+from . import calculator
 from . import shell
 
-def main():
+def run():
     """Entry point for the application script"""
-    calco = calc.Calco()
+    calco = calculator.PyCalco()
     calco.run()
