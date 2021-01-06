@@ -38,7 +38,10 @@ class PyCalcoShell(cmd.Cmd):
         pass
     
     def default(self,line):
-        self.do_eval(line)
+        if '=' in line:
+            self.do_assn(line)
+        else:
+            self.do_eval(line)
         
     def do_copyright(self, args):
         """A command for printing project copyright notice."""
@@ -75,8 +78,8 @@ class PyCalcoShell(cmd.Cmd):
             print(RED + "error: " + END + "too many args (takes no arg but one was given)")
     
     def do_shell(self, args):
-        """A bang shortcut for assn command (i.e,!NAME = EXPR is same as assn NAME = EXPR)."""
-        self.do_assn(args)     
+        """A bang shortcut for symbolic assignment command (i.e,!NAME = EXPR is same as asym NAME = EXPR)."""
+        self.do_asym(args)     
  
     
     def do_eval(self, expression):
