@@ -4,13 +4,13 @@ will come as input from the end user.
 """
 
 import sys
-import cmd
 import click
 
+from pycalco.shell  import PyCalcoShell
 
-class Calco(object):
+class PyCalco(object):
     def __init__(self):
-        pass
+        self.shell = PyCalcoShell()
     
     def eval(self, expression):
         pass 
