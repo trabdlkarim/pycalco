@@ -97,17 +97,19 @@ class PyCalcoShell(cmd.Cmd):
     def help_assn(self):
         print("Assign a value to a variable.")
         print("usage: assn VAR = EXPR")
-   
+
+
     def do_sym(self, args):
         try:
             result =  expr_checker(args, __sympy_env__, __locals__)
             print(result)
             __globals__['ans'] = __globals__['_'] = result
         except Exception as err:
-            print(str(err))
+            print(RED + "error: " + END + str(err))
     
     def help_sym(self):
         print('Command for symbolic computation')
+
 
     def do_globals(self, args):
         """A command for listing all available global names."""
