@@ -5,7 +5,7 @@ from . import aux
 from . import calculator
 from . import shell
 
-def run():
+def main():
     """Entry point for the application script"""
     calco = calculator.PyCalco()
     calco.run()
