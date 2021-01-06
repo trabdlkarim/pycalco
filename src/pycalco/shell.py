@@ -1,9 +1,13 @@
 import sys
 import cmd
 
-from pycalco import *
+import pycalco
 from pycalco.aux.envs import *
 from pycalco.aux.checkers import *
+
+GREEN = '\033[92m'
+RED = '\033[31m'
+END = '\033[0m'
 
 __globals__ = GLOBS   
 __locals__ = {}
@@ -13,7 +17,7 @@ class PyCalcoShell(cmd.Cmd):
     intro = "Welcome to PyCalco shell!\n"
     intro += 'Python ' + sys.version + '\n'
     intro += "Type 'copyright', 'credits' or 'license' for more information.\n"
-    intro += "PyCalco " + VER + " -- A Powerful Arithmetic Expressions Evaluator.\n"
+    intro += "PyCalco " + pycalco.version + " -- A Powerful Arithmetic Expressions Evaluator.\n"
     intro += "Type 'help' or '?' for help.\n"
     intro += "Type 'bye', 'exit' or 'quit' for ending this session.\n\n"
     
