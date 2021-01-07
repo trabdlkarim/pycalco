@@ -1,19 +1,16 @@
 import click
 
-from pycalco import version as ver
+from pycalco import version
 from pycalco.calculator import PyCalco
 
 calc = PyCalco()
 
 @click.group(invoke_without_command=True)
 @click.pass_context
-@click.option("--version", "-v", is_flag=True, help="Print PyCalco version")
+@click.version_option(version=version, prog_name="PyCalco")
 @click.option("--interactive", '-i', is_flag=True, help="Synonym or alias for launch command"
-def run(ctx, interactive, version):
-    if version:
-        click.echo(ver)
-        exit(0)
-    elif interactive:
+def run(ctx, interactive):
+    if interactive:
         calc.run()
         exit(0)
     elif not ctx.invoked_subcommand:
