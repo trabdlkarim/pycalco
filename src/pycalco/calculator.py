@@ -18,5 +18,9 @@ class PyCalco(object):
     def sym(self, args):
         pass
     
-    def run(self):
-        pass 
+    @click.command
+    @click.option('--count/-c', default=1, help='Number of greetings.')
+    @click.argument('name')
+    def run(self,name,count):
+        for i in range(count):
+            click.echo('Hi there, '+name)
