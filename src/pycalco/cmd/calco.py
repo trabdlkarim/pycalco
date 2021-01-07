@@ -15,3 +15,6 @@ def eval(expr):
 @run.command()
 def sym(expr):
     calc.exec('sym ' + expr)
+
+if __name__ == '__main__':
+    ()
