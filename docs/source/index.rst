@@ -17,7 +17,8 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    :glob:
 
    features
-   quickztart/get*
+   quickstart/get*
+   quickstart/concept*
    quickstart/*
    
 .. toctree::
@@ -28,23 +29,32 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    modes/inter*
    modes/norm*
    
-User-oriented Documentation
-===========================
+Tools and Libraries
+===================
 
 The following manuals are written for users of the TAK Project Index — those who are trying to download and install a given package from a project.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Using TAK PI
+   :caption: Tools
    :glob:
    
-   autodoc
-   usage/pack*
-   usage/build*
+   tools/sym*
+   tools/pyeval*
    
+ 
+.. toctree::
+   :maxdepth: 2
+   :caption: Libraries
+   :glob:
+   
+   lib/buit*
+   lib/math*
+   lib/sym*
+   lib/*
 
-Developer Resource Center
-=========================
+Feedback and Support
+====================
 
 There are several resources and unsorted documents that don’t seem to fit on other parts of the documentation body, or may require some adjustments and/or conversion to ReStructured Text format, or are simply too old.
 
