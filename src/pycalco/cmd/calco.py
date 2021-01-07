@@ -17,4 +17,4 @@ def sym(expr):
     calc.exec('sym ' + expr)
 
 if __name__ == '__main__':
-    ()
+    run()
