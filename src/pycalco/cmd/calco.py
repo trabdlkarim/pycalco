@@ -7,10 +7,14 @@ calc = PyCalco()
 
 @click.group(invoke_without_command=True)
 @click.pass_context
-@click.option("-v/--version", default=False, help="Print PyCalco version")
-def run(ctx, version):
+@click.option("--version", "-v", is_flag=True, help="Print PyCalco version")
+@click.option("--interactive", '-i', is_flag=True, help="Synonym or alias for launch command"
+def run(ctx, interactive, version):
     if version:
         click.echo(ver)
+        exit(0)
+    elif interactive:
+        calc.run()
         exit(0)
     elif ctx.invoked_subcommand is None:
         calc.run()
