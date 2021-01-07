@@ -16,7 +16,7 @@ def run(ctx, interactive, version):
     elif interactive:
         calc.run()
         exit(0)
-    elif ctx.invoked_subcommand is None:
+    elif not ctx.invoked_subcommand:
         calc.run()
     
 @run.command()
