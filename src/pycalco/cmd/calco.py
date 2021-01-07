@@ -34,4 +34,4 @@ def launch():
 
 
 if __name__ == '__main__':
-    run(ctx={})
+    run(obj={})
