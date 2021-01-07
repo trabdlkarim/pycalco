@@ -8,7 +8,7 @@ calc = PyCalco()
 @click.group(invoke_without_command=True)
 @click.pass_context
 @click.version_option(version=version, prog_name="PyCalco")
-@click.option("--interactive", '-i', is_flag=True, help="Synonym or alias for launch command"
+@click.option("--interactive", '-i', is_flag=True, help="Synonym or alias for launch command")
 def run(ctx, interactive):
     if interactive:
         calc.run()
