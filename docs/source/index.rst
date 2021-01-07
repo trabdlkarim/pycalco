@@ -29,14 +29,14 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    modes/inter*
    modes/norm*
    
-Tools and Libraries
-===================
+tilities and Used Libraries 
+===========================
 
 The following manuals are written for users of the TAK Project Index — those who are trying to download and install a given package from a project.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tools
+   :caption: Utilities
    :glob:
    
    tools/sym*
@@ -53,29 +53,20 @@ The following manuals are written for users of the TAK Project Index — those w
    lib/sym*
    lib/*
 
-Feedback and Support
-====================
+Supporting PyCalco
+==================
 
 There are several resources and unsorted documents that don’t seem to fit on other parts of the documentation body, or may require some adjustments and/or conversion to ReStructured Text format, or are simply too old.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contributing
-   :glob:
-   
-   resources/contrib*
-   usage/conduct*
-   resources/styleguide*
-   
-   
-.. toctree::
-   :maxdepth: 2
    :caption: Support
    :glob:
-
-   help*
-   resources/feedback*
-     
+   
+   support/contrib*
+   support/feedback*
+   support/*
+   
 
 Indices & Tables
 ================
