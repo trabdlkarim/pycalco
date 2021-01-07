@@ -16,11 +16,11 @@ def assn_checker(stmt, globs, locs):
         for name in code_obj.co_names:
             if name not in globs and name not in locs:
                 raise NameError('name '+ "'" + name + "'"  + ' is not defined')
-                
+        val = eval(expr, globs, locs)      
         if var.isidentifier(): 
             exec(stmt, globs, locs) 
             if var not in globs:
-                return "%s = %s" % (var, locs[var])
+                return "%s = %s" % (var, val)
             else:
                 raise NameError("can't assign to global " + "'" + var + "' (" + str(type(globs[var])) + ")")
         else:
