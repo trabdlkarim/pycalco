@@ -22,11 +22,11 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    
 .. toctree::
    :maxdepth: 2
-   :caption: Licensing
+   :caption: Launch Modes
    :glob:
    
-   about/licensing
-   about/copyright*
+   modes/inter*
+   modes/norm*
    
 User-oriented Documentation
 ===========================
