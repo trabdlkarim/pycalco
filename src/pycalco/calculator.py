@@ -12,7 +12,7 @@ class PyCalco(object):
         self.shell = PyCalcoShell()
     
     def exec(self, cmd):
-        shell.onecmd(cmd) 
+        seld.shell.onecmd(cmd) 
     
     def run(self):
-        shell.cmdloop()
+        self.shell.cmdloop()
