@@ -1,2 +1,2 @@
-Issues and Features
-===================
+Issues & Bugs
+=============
