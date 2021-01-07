@@ -49,7 +49,7 @@ The following manuals are written for users of the TAK Project Index — those w
    :caption: Libraries
    :glob:
    
-   lib/buit*
+   lib/built*
    lib/math*
    lib/sym*
    
