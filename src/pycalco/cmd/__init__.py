@@ -1,3 +1,3 @@
 from . import pyeval
-from . import sym
+from . import symcalco
 from . import calco
