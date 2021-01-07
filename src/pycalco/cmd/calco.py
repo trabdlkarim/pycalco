@@ -1,11 +1,14 @@
 import click
+
+from pycalco import version
 from pycalco.calculator import PyCalco
 
 calc = PyCalco()
 
 @click.group()
+@click.option("--version/-v", default=False, help="Print PyCalco version")
 def run():
-    pass
+    click.echo(version)
     
 
 @run.command()
