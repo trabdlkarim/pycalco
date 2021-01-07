@@ -7,7 +7,7 @@ calc = PyCalco()
 
 @click.group(invoke_without_command=True)
 @click.pass_context
-@click.option("--version", "-v", default=False, help="Print PyCalco version")
+@click.option('-v',"--version", default=False, help="Print PyCalco version")
 def run(ctx, version):
     if version:
         click.echo(ver)
@@ -19,7 +19,7 @@ def run(ctx, version):
 @click.argument('expr', nargs=-1)
 def eval(expr):
     """Evaluate arthimetically given expression"""
-    calc.exec('eval ' + "",join(expr))
+    calc.exec('eval ' + "".join(expr))
 
 @run.command()
 @click.argument('expr', nargs=-1)
