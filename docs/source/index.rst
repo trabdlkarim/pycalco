@@ -23,12 +23,12 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    
 .. toctree::
    :maxdepth: 2
-   :caption: Launch Modes
+   :caption: Commands
    :glob:
    
    modes/inter*
-   command*
    modes/norm*
+   command*
    
 Useful Utilities and Libraries 
 ==============================
