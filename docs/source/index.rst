@@ -27,10 +27,11 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    :glob:
    
    modes/inter*
+   command*
    modes/norm*
    
-tilities and Used Libraries 
-===========================
+Useful Utilities and Libraries 
+==============================
 
 The following manuals are written for users of the TAK Project Index — those who are trying to download and install a given package from a project.
 
