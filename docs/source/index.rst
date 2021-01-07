@@ -68,8 +68,8 @@ There are several resources and unsorted documents that don’t seem to fit on o
    support/feedback*
    
    
-Useful Resources
-================
+Other Useful Pages
+==================
 
 .. toctree::
    :maxdepth: 2
