@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
 import sys
-from pycalco.calculator import PyCalco
+from pycalco.cmd import calco
 
 def main():
-    print('inside main')
-    calco = PyCalco()
-    calco.run()
+    calco.run(obj={})
     
 
 if __name__ == "__main__":
