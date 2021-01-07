@@ -1,2 +1,2 @@
-Python Math Module
-==================
+Math Module
+===========
