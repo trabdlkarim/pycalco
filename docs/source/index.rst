@@ -40,8 +40,8 @@ The following manuals are written for users of the TAK Project Index — those w
    :caption: Utilities
    :glob:
    
-   tools/sym*
    tools/pyeval*
+   tools/sym*
    
  
 .. toctree::
@@ -52,7 +52,7 @@ The following manuals are written for users of the TAK Project Index — those w
    lib/buit*
    lib/math*
    lib/sym*
-   lib/*
+   
 
 Supporting PyCalco
 ==================
@@ -66,7 +66,7 @@ There are several resources and unsorted documents that don’t seem to fit on o
    
    support/contrib*
    support/feedback*
-   support/*
+   
    
 
 Indices & Tables
