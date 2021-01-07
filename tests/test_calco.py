@@ -4,6 +4,7 @@ import sys
 from pycalco.calculator import PyCalco
 
 def main():
+    print('inside main')
     calco = PyCalco()
     calco.run()
     
