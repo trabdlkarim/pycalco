@@ -7,7 +7,7 @@ calc = PyCalco()
 
 @click.group(invoke_without_command=True)
 @click.pass_context
-@click.option("--version/-v", default=False, help="Print PyCalco version")
+@click.option("--version", "-v", default=False, help="Print PyCalco version")
 def run(ctx, version):
     if version:
         click.echo(ver)
