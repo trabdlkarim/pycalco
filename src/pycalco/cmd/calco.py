@@ -12,7 +12,7 @@ def run(ctx, version):
     if version:
         click.echo(ver)
         exit(0)
-    else if ctx.invoked_subcommand is None:
+    elif ctx.invoked_subcommand is None:
         calc.run()
     
 @run.command()
