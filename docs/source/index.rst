@@ -1,2 +1,72 @@
 PyCalco Reference Documentation
 ===============================
+
+Welcome to PyCalco
+------------------
+
+This is the top level of the PyCalco’s technical documentation tree. This documentation, like the project itself, is very much a work in progress; that is especially true as we work to integrate our many scattered documents into a coherent whole. Please note that improvements to the documentation are welcome; send us a feedback if you want to help out.
+
+Getting Started with PyCalco
+============================
+
+These manuals contain overall information about how PyCalco works. The PyCalco community might be quite large, with thousands of developers contributing over the course of a year. As with any large community, knowing how things are done will make the process of getting your changes merged much easier.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Quick Reference
+   :glob:
+
+   features
+   quickstart/*
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Licensing
+   :glob:
+   
+   about/licensing
+   about/copyright*
+   
+User-oriented Documentation
+===========================
+
+The following manuals are written for users of the TAK Project Index — those who are trying to download and install a given package from a project.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Using TAK PI
+   :glob:
+   
+   autodoc
+   usage/pack*
+   usage/build*
+   
+
+Developer Resource Center
+=========================
+
+There are several resources and unsorted documents that don’t seem to fit on other parts of the documentation body, or may require some adjustments and/or conversion to ReStructured Text format, or are simply too old.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contributing
+   :glob:
+   
+   resources/contrib*
+   usage/conduct*
+   resources/styleguide*
+   
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Support
+   :glob:
+
+   help*
+   resources/feedback*
+     
+
+Indices & Tables
+================
+
+* :ref:`genindex`
