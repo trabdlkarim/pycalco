@@ -16,13 +16,13 @@ def run(ctx, version):
         calc.run()
     
 @run.command()
-@click.argument('expr')
+@click.argument('expr', nargs=-1)
 def eval(expr):
     """Evaluate arthimetically given expression"""
     calc.exec('eval ' + "",join(expr))
 
 @run.command()
-@click.argument('expr')
+@click.argument('expr', nargs=-1)
 def sym(expr):
     """Compute symbolically given expression"""
     calc.exec('sym ' + "".join(expr))
