@@ -1,16 +1,17 @@
-
 import click
+from pycalco.calculator import PyCalco
 
-@click.command()
-@click.option('--count/-c', default=1, help='Number of greetings.')
-@click.argument('name')
-def run(count, name):
-    for i in range(count):
-        click.echo('Hi there, '+name)
+calc = PyCalco()
 
+@click.group()
+def run():
+    pass
+    
 
+@run.command()
 def eval(expr):
-    pass
+    calc.exec('eval ' + expr)
 
+@run.command()
 def sym(expr):
-    pass
+    calc.exec('sym ' + expr)
