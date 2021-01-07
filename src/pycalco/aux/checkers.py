@@ -23,7 +23,7 @@ def assn_checker(stmt, globs, locs):
                 return "%s = %s" % (var, locs[var])
             else:
                 raise NameError("can't assign to global " + "'" + var + "' (" + str(type(globs[var])) + ")")
-         else:
+        else:
              raise SyntaxError("invalid syntax ('{}' is not a valid name)".format(var))
     else:
         raise SyntaxError("invalid syntax for assignment (type '?' for help)")
