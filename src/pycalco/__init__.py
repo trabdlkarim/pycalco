@@ -8,4 +8,4 @@ from . import shell
 
 def main():
     """Entry point for the application script"""
-    cmd.calco.run()
+    cmd.calco.run(obj={})
