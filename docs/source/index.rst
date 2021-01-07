@@ -17,6 +17,7 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
    :glob:
 
    features
+   quickztart/get*
    quickstart/*
    
 .. toctree::
