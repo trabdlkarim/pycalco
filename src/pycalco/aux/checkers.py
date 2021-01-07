@@ -21,10 +21,12 @@ def assn_checker(stmt, globs, locs):
             exec(stmt, globs, locs) 
             if var not in globs:
                 return "%s = %s" % (var, locs[var])
-        else:
-            raise NameError("can't reassign global " + "'" + var + "' (" + str(type(globs[var])) + ")")
+            else:
+                raise NameError("can't assign to global " + "'" + var + "' (" + str(type(globs[var])) + ")")
+         else:
+             raise SyntaxError("invalid syntax ('{}' is not a valid name)".format(var))
     else:
-        raise SyntaxError("invalid syntax for assignment (type '?assn' for help)")
+        raise SyntaxError("invalid syntax for assignment (type '?' for help)")
         
 
  
