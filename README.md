@@ -13,9 +13,11 @@ Well, we acknowledge that question is legitimate, but it is easy to answer: beca
 - is simple, interactive and intuitive
 - supports both arithemetic and algebraic expressions evaluation
 - is highly customizable with the ability to add new scientific modules without to much struggle
-- suppport variable assignment
+- suppports variable assignment
 - needs no python import statements to use globally available mathematical functions
 - comes with useful common helpers (getting terminal dimensions, ANSI colors, fetching direct keyboard input, screen clearing, command history, various other assignment tools, supporting bang shortcuts, etc.)
+
+PyCalco actually implements its own shell and is designed to be fun and customizable but not overly flexible. To get an understanding of what PyCalco is all about, We strongly recommend looking at the [PyCalco Tutorials](https://gh.trabdlkarim.com/pycalco/).
 
 # Installation
 
