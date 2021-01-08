@@ -43,7 +43,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'PyCalco'
-copyright = u'2020, Toure A. Karim & Contributors -'
+copyright = u'2020, Toure A. Karim & Contributors'
 author = u'Toure A. Karim'
 
 # The version info for the project you're documenting, acts as replacement for
