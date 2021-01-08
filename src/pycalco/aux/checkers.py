@@ -21,7 +21,7 @@ def assn_checker(stmt, globs, locs):
         for name in var.split(','):
             if not name.isidentier():
                 is_id = False
-                var = name
+                var = name.strip()
                 break
          
         if is_id: 
