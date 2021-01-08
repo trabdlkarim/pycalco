@@ -16,8 +16,15 @@ def assn_checker(stmt, globs, locs):
         for name in code_obj.co_names:
             if name not in globs and name not in locs:
                 raise NameError('name '+ "'" + name + "'"  + ' is not defined')
-        val = eval(expr, globs, locs)      
-        if var.isidentifier(): 
+        val = eval(expr, globs, locs)
+        is_id= True
+        for name in var.split(','):
+            if not name.isidentier():
+                is_id = False
+                var = name
+                break
+         
+        if is_id: 
             exec(stmt, globs, locs) 
             if var not in globs:
                 return "%s = %s" % (var, val)
