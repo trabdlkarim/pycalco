@@ -19,7 +19,7 @@ def assn_checker(stmt, globs, locs):
         val = eval(expr, globs, locs)
         is_id= True
         for name in var.split(','):
-            if not name.isidentier():
+            if not name.isidentifier():
                 is_id = False
                 var = name.strip()
                 break
