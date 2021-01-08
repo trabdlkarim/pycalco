@@ -21,7 +21,7 @@ PyCalco actually implements its own shell and is designed to be fun and customiz
 
 # Installation
 
-PyCalco is available on the [Python Package Index](https://pypi.org/project/pycalco/), which makes its intallation quite easy.
+PyCalco is available on the [Python Package Index](https://pypi.org/project/pycalco/), which makes its installation quite easy.
 You just need python3 and its package manager pip3 on your plateform, then you are set to install PyCalco.
 
 Run the following command from the terminal for installation:
