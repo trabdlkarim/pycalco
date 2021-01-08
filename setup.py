@@ -188,7 +188,7 @@ setup(
         'Homepage':'https://gh.trabdlkarim.com/pycalco',
         'Documentation': 'https://docs.trabdlkarim.com/projects/pycalco/en/latest',
         'Bug Reports': 'https://github.com/trabdlkarim/pycalco/issues',
-        'Source': 'https://github.com/trabdlkarim/pycalco/',
-        'Say Thanks!': 'http://saythanks.io/to/trabdlkarim%40programmer.net',
+        'Source Code': 'https://github.com/trabdlkarim/pycalco/',
+        'Say Thanks!': 'https://saythanks.io/to/trabdlkarim%40programmer.net',
     },
 )
