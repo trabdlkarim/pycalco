@@ -13,7 +13,7 @@ PyCalco or shortly Calco is a powerful command line interface for arithmetic and
 PyCalco is available on the [Python Package Index](https://pypi.org/project/pycalco/), which makes its intallation quite easy.
 You just need python3 and its package manager pip3 on your plateform, then you are set to install PyCalco.
 
-Run the following command from the terminal for installion:
+Run the following command from the terminal for installation:
 
 `pip install pycalco`
 
@@ -27,14 +27,17 @@ After installation to run PyCalco interactively just type, again from the termin
 
 `pycalco`
 
-And voilà, you are ready to use PyCalco. You see the PyCalco shell waiting for you to enter your commands and evaluate expressions. 
+And voilà, you are ready to use PyCalco. You should see the PyCalco shell waiting for you to enter your commands and evaluate expressions. Type `help` to get help on how to use PyCalco. You can also type directly any valid arithmetic and symbolic expression to get it evaluated.
 
 
 # Documentation
 
 The project documentation is located at <https://docs.trabdlkarim.com/projects/pycalco/en/latest/>. Please note that the documentation is still a work in progress, so improvements to the documentation are welcome.
 
-# Support
+# Support & Contribution
+
+PyCalco is under BSD 3-Clause Revised License, which means its license is an [Open Source Initiative ](https://opensource.org/) approved license. Being an open source software PyCalco needs your support. Feel free to contribute to this project by forking it and submitting your changes as a pull request. Feel also free to report any bug [here](https://github.com/trabdlkarim/pycalco/issues) that you may find. And we also welcome greatly new feature suggestions. 
+Please so do not hesistate to send us your feedback.
 
 ---
 
