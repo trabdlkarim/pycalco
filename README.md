@@ -12,7 +12,7 @@ Well, we acknowledge that question is legitimate, but it is easy to answer: beca
 
 - is simple, interactive and intuitive
 - supports both arithemetic and algebraic expressions evaluation
-- is highly customizable with the ability to add new scientific modules without to much struggle
+- is highly customizable with the ability to add new scientific modules without too much struggle
 - suppports variable assignment
 - needs no python import statements to use globally available mathematical functions
 - comes with useful common helpers (getting terminal dimensions, ANSI colors, fetching direct keyboard input, screen clearing, command history, various other assignment tools, supporting bang shortcuts, etc.)
