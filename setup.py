@@ -185,8 +185,8 @@ setup(
     # maintainers, and where to support the project financially. The key is
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'Homepage':'https:/gh.trabdlkarim.com/pycalco',
-        'Documentation': 'https:/docs.trabdlkarim.com/projects/pycalco/en/latest',
+        'Homepage':'https://gh.trabdlkarim.com/pycalco',
+        'Documentation': 'https://docs.trabdlkarim.com/projects/pycalco/en/latest',
         'Bug Reports': 'https://github.com/trabdlkarim/pycalco/issues',
         'Source': 'https://github.com/trabdlkarim/pycalco/',
         'Say Thanks!': 'http://saythanks.io/to/trabdlkarim%40programmer.net',
