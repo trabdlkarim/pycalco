@@ -48,7 +48,7 @@ The project documentation is located at <https://docs.trabdlkarim.com/projects/p
 # Support & Contribution
 
 PyCalco is under BSD 3-Clause Revised License, which means its license is an [Open Source Initiative ](https://opensource.org/) approved license. Being an open source software PyCalco needs your support. Feel free to contribute to this project by forking it and submitting your changes as a pull request. Feel also free to report any bug [here](https://github.com/trabdlkarim/pycalco/issues) that you may find. And we also welcome greatly new feature suggestions. 
-Please so do not hesistate to send us your feedback.
+Please so do not hesitate to send us your feedback.
 
 ---
 
