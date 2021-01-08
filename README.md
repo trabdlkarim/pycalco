@@ -6,4 +6,14 @@
 
 PyCalco or shortly Calco is a powerful command line interface for arithmetic and algebraic or symbolic expressions evaluation. Its power relies on the **math** module from Python standard library and **SymPy** module, which is a Python library for symbolic mathematics. If you are new to SymPy or symbolic computation, start with their [tutorial](https://docs.sympy.org/latest/tutorial/index.html#tutorial), it is a great place where to start from.
 
+# Why Another Python Calculator?
+
+# Installation
+
+# Usage
+
+# Documentation
+
+# Support
+
 For more detailed informations about PyCalco visit the [project homepage](https://gh.trabdlkarim.com/pycalco/).
