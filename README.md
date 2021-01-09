@@ -36,7 +36,7 @@ If that didn't work, try:
 
 After installation to run PyCalco interactively just type, again from the terminal, the following command:
 
-`pycalco`
+`pycalco launch`
 
 And voilà, you are ready to use PyCalco. You should see the PyCalco shell waiting for you to enter your commands and evaluate expressions. Type `help` to get help on how to use PyCalco. You can also type directly any valid arithmetic and symbolic expression to get it evaluated.
 
