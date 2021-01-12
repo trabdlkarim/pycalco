@@ -1,8 +1,6 @@
-PyCalco Reference Documentation
-===============================
+Welcome to PyCalco Docs
+=======================
 
-Welcome to PyCalco
-------------------
 
 This is the top level of the PyCalco’s technical documentation tree. This documentation, like the project itself, is very much a work in progress; that is especially true as we work to integrate our many scattered documents into a coherent whole. Please note that improvements to the documentation are welcome; send us a feedback if you want to help out.
 
