@@ -55,6 +55,7 @@ The following manuals are written for useful tools or utilities and used librari
 Supporting PyCalco
 ==================
 
+Being an open source software, PyCalco needs your support. How can you support us? Feel free to contribute to this project, to report any bug or issue that you may find. And we also welcome greatly new feature suggestions.
 
 .. toctree::
    :maxdepth: 2
@@ -68,7 +69,7 @@ Supporting PyCalco
 Other Useful Pages
 ==================
 
-This is a section for several resources and unsorted documents that don’t seem to fit on other parts of the documentation body, or may require some adjustments and/or conversion to ReStructured Text format, or are simply too old.
+This is a section for several resources and unsorted documents that don’t seem to fit on other parts of the documentation body, or may require some adjustments and/or conversion to ReStructured Text format.
 
 .. toctree::
    :maxdepth: 2
