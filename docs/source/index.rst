@@ -31,7 +31,7 @@ These manuals contain overall information about how PyCalco works. The PyCalco c
 Useful Utilities and Libraries 
 ==============================
 
-The following manuals are written for users of the TAK Project Index — those who are trying to download and install a given package from a project.
+The following manuals are written for useful tools or utilities and used libraries to sustain PyCalco. The utilities have been developed along with PyCalco shell and can be used separately as a command line evaluator for specific expressions evalution.
 
 .. toctree::
    :maxdepth: 2
