@@ -1,9 +1,9 @@
 # Description
 
-PyCalco is a powerful command line tool written in Python for evaluating arithmetic expressions and much more. It is Python for only expressions and calculus without the language's other constructs.
+PyCalco is a powerful command line tool written in Python for evaluating arithmetic and algebraic expressions and much more. Think of it as the Python interpreter for only expressions and calculus without the language's other constructs.
 
 # Documentation
 
-The official reference documentation of the project is located at <https://docs.trabdlkarim.com/projects/pycalco/en/latest/>.
+Visit the link below to learn more about the project.
 
-Visit that link to learn more about the project.
+The official reference documentation of the project is located at <https://docs.trabdlkarim.com/projects/pycalco/en/latest/>.
