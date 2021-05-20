@@ -7,7 +7,7 @@ import sympy
 
 
 GLOBS = {'__builtins__': {}, 'abs': blt.abs, 'all': blt.all, 'ans': None, 'any': blt.any, 
-               'bin': blt.bin, 'mod': blt.divmod, 'hex': 'hex', 'max': blt.max, 'min': blt.min,
+               'bin': blt.bin, 'mod': blt.divmod, 'hex': blt.hex, 'max': blt.max, 'min': blt.min,
                'len': blt.len, 'oct': blt.oct, 'ord': blt.ord, 'powmod': blt.pow, 'round': blt.round, 
                'sorted': blt.sorted, 'sum': blt.sum, 'false': False, 'true': True, 'bool': blt.bool, 
                'complex': blt.complex, 'filter': blt.filter, 'float': blt.float, 'int': blt.int, 
